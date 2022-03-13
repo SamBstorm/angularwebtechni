@@ -1,0 +1,14 @@
+<h2>Componant Directives</h2>
+<h3>NgStyle</h3>
+
+<div [ngStyle]="currentStyles">Bonjour et bienvenue ! C'est bientôt le weekend :)</div>
+
+<div>
+    <button (click)="toggleItalic()"> Italic</button>
+    <button (click)="toggleBold()">Bold</button>
+    <button (click)="toggleSize()">Size</button>
+</div>
+
+<h3>NgClass</h3>
+<div [ngClass]="{ maClass : class}">Courage c'est vraiment bientôt le weekend</div>
+<button (click)="toggleClass()">Class</button>

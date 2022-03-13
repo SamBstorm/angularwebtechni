@@ -1,0 +1,19 @@
+<h2>Les Pipes</h2>
+<h3>Les Pipes déjà existants :</h3>
+<p>Ma chaîne de caractères avant les pipes : {{maChaine}}</p>
+<p>Uppercase : {{ maChaine | uppercase }} </p>
+<p>Lowercase : {{ maChaine | lowercase}}</p>
+<p>Titlecase : {{ maChaine | titlecase}}</p>
+
+<p>Mon nombre avant pipe : {{monNombre}}</p>
+<p>Pipe nombre : {{monNombre | number : '2.1-5'}}</p>
+
+<p>La date avant pipe : {{dateDuJour}}</p>
+<p>Pipe date : {{dateDuJour | date : 'dd-MM-yyyy'}}</p>
+<p>Pipe date : {{dateDuJour | date : 'dd/MM/yy'}}</p>
+<p>Pipe date : {{dateDuJour | date : 'dd MMMM yyyy'}}</p>
+
+
+<h3>Exemple Pipe Custom : </h3>
+<p>Ma température : {{maTemp}} °C</p>
+<p>Ma température convertie {{maTemp | toFahrenheit | number : '2.0-0' }} °F</p>
