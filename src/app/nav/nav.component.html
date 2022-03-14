@@ -1,5 +1,5 @@
 <nav>
-  <a routerLink="">Accueil</a>
+  <!-- <a routerLink="">Accueil</a>
   <a routerLink="/demo">Demo</a>
   <ul>
       <li><a routerLink="/demo/demo1">Demo1 - Bindings</a></li>
@@ -14,5 +14,17 @@
   <a routerLink="/exercice">Exercice</a>
   <ul>
       <li> <a routerLink="/exercice/exo1">Exercice 1 - Timer</a></li>
+  </ul> -->
+  <ul>
+    <li *ngFor="let menuItem of menu" appToggleInvisible>
+      <a [routerLink]="menuItem.url">{{menuItem.title}}</a>
+      <ul *ngIf="menuItem.children && menuItem.children.length > 0">
+        <ng-container *ngFor="let subMenuItem of menuItem.children">
+          <li [ngClass]="{invisible : !subMenuItem.isVisible}">
+            <a [routerLink]="((menuItem.url)?menuItem.url:'')+subMenuItem.url">{{subMenuItem.title}}</a>
+          </li>
+        </ng-container>
+      </ul>
+    </li>
   </ul>
 </nav>

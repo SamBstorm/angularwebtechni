@@ -5,6 +5,7 @@ import { ConvertSecondsPipe } from '../pipes/convert-seconds.pipe';
 import { FormsModule } from '@angular/forms';
 import { HighligthDirective } from './directives/highligth.directive';
 import { SamEverywhereDirective } from './directives/sam-everywhere.directive';
+import { ToggleInvisibleDirective } from './directives/toggle-invisible.directive';
 
 
 
@@ -13,7 +14,8 @@ import { SamEverywhereDirective } from './directives/sam-everywhere.directive';
     ToFahrenheitPipe,
     ConvertSecondsPipe,
     HighligthDirective,
-    SamEverywhereDirective
+    SamEverywhereDirective,
+    ToggleInvisibleDirective
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { SamEverywhereDirective } from './directives/sam-everywhere.directive';
     ConvertSecondsPipe,
     FormsModule,
     HighligthDirective,
-    SamEverywhereDirective
+    SamEverywhereDirective,
+    ToggleInvisibleDirective
   ]
 
 })
