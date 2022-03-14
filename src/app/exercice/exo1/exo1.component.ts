@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-exo1',
   templateUrl: './exo1.component.html',
   styleUrls: ['./exo1.component.scss'],
 })
-export class Exo1Component implements OnInit {
-  totalSeconds: number = 0;
+export class Exo1Component implements OnInit, OnDestroy {
+  totalSeconds!: number;
   timer: any;
 
-  constructor() {}
+  constructor() {
+  }
+  ngOnDestroy(): void {
+    alert('Ho quel dommage d\'être parti si vite!')
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.totalSeconds = 0;
+  }
 
   start() {
     this.timer = setInterval( () => { this.totalSeconds ++; } , 1000);

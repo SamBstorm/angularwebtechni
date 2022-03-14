@@ -7,6 +7,7 @@ import { DemoRoutingModule } from './demo/demo-routing.module';
 import { ExerciceRoutingModule } from './exercice/exercice-routing.module';
 import { NavComponent } from './nav/nav.component';
 import { ConvertSecondsPipe } from './pipes/convert-seconds.pipe';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ConvertSecondsPipe } from './pipes/convert-seconds.pipe';
     BrowserModule,
     AppRoutingModule,
     DemoRoutingModule,
-    ExerciceRoutingModule
+    ExerciceRoutingModule,
+    SharedModule
   ],
   exports : [],
   providers: [],

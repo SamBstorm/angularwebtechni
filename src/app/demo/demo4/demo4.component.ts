@@ -10,6 +10,7 @@ export class Demo4Component implements OnInit {
   affiche : boolean = false;
 
   liste : string[] = ["Bonjour", "Hello", "Hola", "Ciao"];
+  boisson : string[] = ['coca','fanta','cafe'];
 
   choixBoisson : string ="";
   choixNombre : number = 0;
@@ -21,5 +22,9 @@ export class Demo4Component implements OnInit {
 
   toggleAffiche(){
     this.affiche = !this.affiche;
+  }
+
+  showDrink(index:number):string{
+    return this.boisson[index];
   }
 }

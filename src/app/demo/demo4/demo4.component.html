@@ -6,24 +6,42 @@
 
 <h3>NgFor</h3>
 <ul>
-    <li *ngFor="let bonjour of liste; let i = index">{{bonjour}} - {{i}}</li>
+    <ng-container *ngFor="let bonjour of liste; let i = index">
+        <li *ngIf="bonjour.length <= 5; else elseNoBonjour">{{bonjour}} - {{i}}</li>
+    </ng-container>
 </ul>
+<ng-template #elseNoBonjour>
+    <li>NO DATA</li>
+</ng-template>
 
 <h3>NgSwitch</h3>
 <input type="text" [(ngModel)]="choixBoisson">
 <div [ngSwitch]="choixBoisson">
- <div *ngSwitchCase="'coca'">Voilà votre coca</div>
+    <!-- <div *ngSwitchCase="'coca'">Voilà votre coca</div>
  <div *ngSwitchCase="'fanta'">Voilà votre fanta</div>
- <div *ngSwitchCase="'cafe'">Voilà votre cafe</div>
- <div *ngSwitchDefault>Vous avez rentré une valeur invalide</div>
+ <div *ngSwitchCase="'cafe'">Voilà votre cafe</div> -->
+    <ng-container *ngFor="let drink of boisson">
+        <div *ngSwitchCase="drink">Voilà votre {{drink}}!</div>
+    </ng-container>
+    <div *ngSwitchDefault>Vous avez rentré une valeur invalide</div>
 
 </div>
-
-<input type="text" [(ngModel)]="choixNombre">
+<div>
+    <label>Choix 1</label>
+    <input type="radio" [(ngModel)]="choixNombre" value="1" name="choixBtn">
+</div>
+<div>
+    <label>Choix 2</label>
+    <input type="radio" [(ngModel)]="choixNombre" value="2" name="choixBtn">
+</div>
+<div>
+    <label>Choix 3</label>
+    <input type="radio" [(ngModel)]="choixNombre" value="3" name="choixBtn">
+</div>
 <div [ngSwitch]="choixNombre">
- <div *ngSwitchCase="1">Vous avez choisi l'option 1</div>
- <div *ngSwitchCase="2">Vous avez choisi l'option 2</div>
- <div *ngSwitchCase="3">Vous avez choisi l'option 3</div>
- <div *ngSwitchDefault>Vous avez rentré une valeur invalide</div>
+    <div *ngSwitchCase="1">Vous avez choisi l'option 1</div>
+    <div *ngSwitchCase="2">Vous avez choisi l'option 2</div>
+    <div *ngSwitchCase="3">Vous avez choisi l'option 3</div>
+    <div *ngSwitchDefault>Vous avez rentré une valeur invalide</div>
 
 </div>
