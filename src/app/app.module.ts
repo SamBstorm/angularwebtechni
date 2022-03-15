@@ -8,11 +8,13 @@ import { ExerciceRoutingModule } from './exercice/exercice-routing.module';
 import { NavComponent } from './nav/nav.component';
 import { ConvertSecondsPipe } from './pipes/convert-seconds.pipe';
 import { SharedModule } from './shared/shared.module';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
+    AccueilComponent,
    ],
   imports: [
     BrowserModule,

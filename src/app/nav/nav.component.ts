@@ -17,6 +17,7 @@ export class NavComponent implements OnInit {
       new Link("Démo 4 - Structurals Directives", "/demo4"),
       new Link("Démo 5 - Customs Directives", "/demo5"),
       new Link("Démo 6 - @Input() @Output()", "/demo6"),
+      new Link("Démo 7 -Service", "/demo7"),
     ], true),
     new Link("Exercice",'/exercice',[
       new Link("Exercice 1 - Chonomètre",'/exo1'),

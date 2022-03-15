@@ -1,0 +1,10 @@
+<div *ngIf="!isLogged; else logoutBtn">
+    <input type="text" [(ngModel)]="username" placeholder="Veuillez indiquer votre username">
+    <input type="button" value="Login" (click)="login()">
+</div>
+<ng-template #logoutBtn>
+    <h1>Bonjour {{username}}</h1>
+    <div>
+        <input type="button" value="Logout" (click)="logout()">
+    </div>
+</ng-template>
