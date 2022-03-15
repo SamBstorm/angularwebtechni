@@ -1,0 +1,8 @@
+<h1>Ma liste de course!</h1>
+<app-exo2-add-form (productEvent)="newProduct($event)"></app-exo2-add-form>
+<ul *ngIf="products && products.length > 0; else noProduct">
+    <li *ngFor="let product of products; let i = index">
+        <app-exo2-list-item [product]="product" (deleteEvent)="deleteProduct(i)"></app-exo2-list-item>
+    </li>
+</ul>
+<ng-template #noProduct>Vous n'avez malheureusement aucun produits 😒</ng-template>
