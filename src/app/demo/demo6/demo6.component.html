@@ -1,0 +1,6 @@
+<h1>Ma liste d'élèves</h1>
+<ul>
+    <li *ngFor="let student of eleves">
+        <app-demo6-child [eleve]="student" (eleveClone)="recevoirClone($event)"></app-demo6-child>
+    </li>
+</ul>
