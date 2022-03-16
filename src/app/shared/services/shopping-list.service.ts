@@ -6,7 +6,9 @@ import { IArticle } from 'src/app/models/iarticle';
 })
 export class ShoppingListService {
 
-  public articles : IArticle[] = [];
+  public articles : IArticle[] = [
+    {name:'tomates', quantity:6}
+  ];
   constructor() { }
 
   public addArticle(article : IArticle){

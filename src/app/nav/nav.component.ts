@@ -22,6 +22,7 @@ export class NavComponent implements OnInit {
     new Link("Exercice",'/exercice',[
       new Link("Exercice 1 - Chonomètre",'/exo1'),
       new Link("Exercice 2 - Shopping List",'/exo2'),
+      new Link("Exercice 3 - Shopping List v2",'/exo3'),
     ],true)
     ];
   constructor() { }
