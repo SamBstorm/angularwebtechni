@@ -1,12 +1,15 @@
 <h1>Veuillez vous inscrire</h1>
-<form [formGroup]="inscriptionForm">
+<form [formGroup]="inscriptionForm" (ngSubmit)="submitInscription()">
     <div>
         <label for="name">Nom : </label>
         <input type="text" id="name" formControlName="name">
+        <p *ngIf="inscriptionForm.get('name')?.errors?.['required']">Le nom est obligatoire</p>
+        <p *ngIf="inscriptionForm.get('name')?.errors?.['maxlength'] && !inscriptionForm.get('name')?.pristine">Le nom est trop long</p>
     </div>
     <div>
         <label for="firstname">Prénom : </label>
         <input type="text" id="firstname" formControlName="firstname">
+        <p  *ngIf="!inscriptionForm.get('name')?.valid && !inscriptionForm.get('name')?.pristine">Le prénom n'est pas valide</p>
     </div>
     <div>
         <label for="birth">Date de naissance : </label>
@@ -32,5 +35,5 @@
             <input type="button" value="-" (click)="removeSkill(i)">
         </div>
     </div>
-    <input type="submit" value="S'enregistrer">
+    <input type="submit" value="S'enregistrer" [disabled]="!inscriptionForm.valid">
 </form>

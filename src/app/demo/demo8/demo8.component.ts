@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-demo8',
@@ -16,9 +16,9 @@ export class Demo8Component implements OnInit {
 
   ngOnInit(): void {
     this.inscriptionForm = this._fb.group({
-      name : [null,[Validators.required]],
-      firstname : [null,[Validators.required]],
-      birthdate : [null,[Validators.required]],
+      name : [null,[Validators.required, Validators.maxLength(32)]],
+      firstname : [null,[Validators.required, Validators.maxLength(32)]],
+      birthdate : [null,[Validators.required, this.minAgeValidator(18)]],
       gender : [null,[Validators.required]],
       skills : this._fb.array([])
     });
@@ -36,4 +36,29 @@ export class Demo8Component implements OnInit {
     this.getSkills().removeAt(index);
   }
 
+  public submitInscription(){
+    console.log(this.inscriptionForm);
+  }
+
+  public minAgeValidator(minAge:number):ValidatorFn|null {
+    return (control : AbstractControl) : ValidationErrors |null => {
+      if(!control.value) return {
+        'minagevalidator':{
+          reason :'No date'
+        }
+      }
+      let date: Date = new Date(control.value);
+      let year : number = date.getTime();
+      let currentYear : number = Date.now();
+      let diffTime : Date = new Date(currentYear - year);
+      // let age = Math.abs(new Date(Date.now() - new Date(control.value).getTime()).getUTCFullYear() - 1970);
+      if(Math.abs(diffTime.getUTCFullYear() - 1970) < minAge) return {
+        'minagevalidator':{
+          reason:'Vous être trop jeune.',
+          value : control.value
+        }
+      }
+      return null;
+    }
+  }
 }
