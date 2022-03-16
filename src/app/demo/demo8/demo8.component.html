@@ -1,0 +1,36 @@
+<h1>Veuillez vous inscrire</h1>
+<form [formGroup]="inscriptionForm">
+    <div>
+        <label for="name">Nom : </label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+        <label for="firstname">Prénom : </label>
+        <input type="text" id="firstname" formControlName="firstname">
+    </div>
+    <div>
+        <label for="birth">Date de naissance : </label>
+        <input type="date" id="birth" formControlName="birthdate">
+    </div>
+    <div>
+        <label for="male">Homme : </label>
+        <input type="radio" id="male" name="gender" value="m" formControlName="gender">
+    </div>
+    <div>
+        <label for="female">Femme : </label>
+        <input type="radio" id="female" name="gender" value="f" formControlName="gender">
+    </div>
+    <div>
+        <label for="other">Autre : </label>
+        <input type="radio" id="other" name="gender" value="o" formControlName="gender">
+    </div>
+    <div formArrayName="skills">
+        <input type="button" value="Nouvelle compétence" (click)="addNewSkill()">
+        <div *ngFor="let skill of getSkills().controls; let i = index">
+            <label [for]="'skill'+i">Compétence {{i+1}} :</label>
+            <input type="text" [name]="'skill'+i" [id]="'skill'+i" [formControlName]="i">
+            <input type="button" value="-" (click)="removeSkill(i)">
+        </div>
+    </div>
+    <input type="submit" value="S'enregistrer">
+</form>

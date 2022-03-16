@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToFahrenheitPipe } from '../pipes/to-fahrenheit.pipe';
 import { ConvertSecondsPipe } from '../pipes/convert-seconds.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HighligthDirective } from './directives/highligth.directive';
 import { SamEverywhereDirective } from './directives/sam-everywhere.directive';
 import { ToggleInvisibleDirective } from './directives/toggle-invisible.directive';
@@ -20,6 +20,7 @@ import { ToggleInvisibleDirective } from './directives/toggle-invisible.directiv
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   exports : [
     ToFahrenheitPipe,
@@ -27,7 +28,8 @@ import { ToggleInvisibleDirective } from './directives/toggle-invisible.directiv
     FormsModule,
     HighligthDirective,
     SamEverywhereDirective,
-    ToggleInvisibleDirective
+    ToggleInvisibleDirective,
+    ReactiveFormsModule
   ]
 
 })

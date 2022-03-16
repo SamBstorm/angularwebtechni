@@ -13,6 +13,8 @@ import { Demo6Component } from './demo6/demo6.component';
 import { Demo6ChildComponent } from './demo6-child/demo6-child.component';
 import { Demo7Component } from './demo7/demo7.component';
 import { UserService } from '../shared/services/user.service';
+import { Demo8Component } from './demo8/demo8.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,12 +27,14 @@ import { UserService } from '../shared/services/user.service';
     Demo5Component,
     Demo6Component,
     Demo6ChildComponent,
-    Demo7Component
+    Demo7Component,
+    Demo8Component
   ],
   imports: [
     CommonModule,
     DemoRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers:[UserService]
 })

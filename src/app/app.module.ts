@@ -9,6 +9,7 @@ import { NavComponent } from './nav/nav.component';
 import { ConvertSecondsPipe } from './pipes/convert-seconds.pipe';
 import { SharedModule } from './shared/shared.module';
 import { AccueilComponent } from './accueil/accueil.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
