@@ -10,12 +10,14 @@ import { ConvertSecondsPipe } from './pipes/convert-seconds.pipe';
 import { SharedModule } from './shared/shared.module';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     AccueilComponent,
+    NotFoundComponent,
    ],
   imports: [
     BrowserModule,
