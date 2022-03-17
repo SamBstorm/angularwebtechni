@@ -1,0 +1,23 @@
+<h1>Une petite mise à jour?</h1>
+<h2>Prenez votre temps...</h2>
+
+<!-- form>(div>label+input:text)*2+(div>div>label+input:text)+input:submit -->
+<form [formGroup]="editFanForm" (ngSubmit)="onSubmit()">
+    <div><label for="name">Nom : </label><input type="text" id="name" formControlName="name"></div>
+    <div *ngIf="editFanForm.get('name')?.errors?.['required']">Ce champs est requis.</div>
+    <div><label for="bdate">Date de naissance : </label><input type="date" id="bdate" formControlName="birthdate"></div>
+    <div *ngIf="editFanForm.get('birthdate')?.errors?.['required']">Ce champs est requis.</div>
+    <div *ngIf="editFanForm.get('birthdate')?.errors?.['minage']">Minimum 13 ans.</div>
+    <div formArrayName="series">
+        <input type="button" (click)="addNewSerie()" value="+">
+        <div *ngFor="let serie of getSeries().controls; let i = index">
+            <label [for]="'serie'+i">Série {{i+1}}:</label><input type="text" [id]="'serie'+i" [formControlName]="i">
+            <input type="button" value="🚮" (click)="removeSerie(i)">
+            <div *ngIf="getSeries().controls[i].errors?.['required']">Ce champs est requis.</div>
+        </div>
+    </div>
+    <input type="submit" value="Vous enregistrer!" [disabled]="!editFanForm.valid">
+</form>
+
+
+<a [routerLink]="'/exercice/exo4/details/'+fan.id">Revenir aux détails</a>

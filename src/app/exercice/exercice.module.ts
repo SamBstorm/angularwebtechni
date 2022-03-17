@@ -10,6 +10,10 @@ import { Exo2AddFormComponent } from './exo2-add-form/exo2-add-form.component';
 import { Exo2ListItemComponent } from './exo2-list-item/exo2-list-item.component';
 import { Exo3Component } from './exo3/exo3.component';
 import { Exo3addArticleComponent } from './exo3add-article/exo3add-article.component';
+import { CreateFanComponent } from './exo4/create-fan/create-fan.component';
+import { FanDetailsComponent } from './exo4/fan-details/fan-details.component';
+import { FanListComponent } from './exo4/fan-list/fan-list.component';
+import { EditFanComponent } from './exo4/edit-fan/edit-fan.component';
 
 
 @NgModule({
@@ -20,7 +24,11 @@ import { Exo3addArticleComponent } from './exo3add-article/exo3add-article.compo
     Exo2AddFormComponent,
     Exo2ListItemComponent,
     Exo3Component,
-    Exo3addArticleComponent
+    Exo3addArticleComponent,
+    CreateFanComponent,
+    FanDetailsComponent,
+    FanListComponent,
+    EditFanComponent
   ],
   imports: [
     CommonModule,

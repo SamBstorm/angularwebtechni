@@ -1,0 +1,19 @@
+<ng-container *ngIf="fan; else noFan">
+    <h1>{{fan.name | uppercase}}</h1>
+    <h2>Né le {{fan.birthdate | date:'dd-MM-yyyy'}}.</h2>
+    <a [routerLink]="'/exercice/exo4/edit/'+fan.id">Mettre à jour?</a>
+    
+    <ul *ngIf="fan.series && fan.series.length > 0; else noSeries ">
+        <li *ngFor="let serie of fan.series">
+            <div>{{serie}}</div>
+        </li>
+    </ul>
+    
+    <ng-template #noSeries>
+        <div>Il est temps de binge-watcher ? 😅</div>
+    </ng-template>
+</ng-container>
+<ng-template #noFan>
+    Chargement en cours...
+</ng-template>
+<a routerLink="/exercice/exo4">Revenir à la liste</a>

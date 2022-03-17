@@ -1,0 +1,18 @@
+<h1>Voici les autres fans!♥♥♥♥♥♥♥</h1>
+<input type="button" value="Ajouter un fan!" (click)="navigateToCreate()">
+
+<div *ngIf="!fans; else fanList">Chargement en cours...</div>
+<ng-template #fanList>
+    <ul *ngIf="fans.length > 0; else noFans">
+        <li *ngFor="let fan of fans">
+            <div>
+                <a [routerLink]="'/exercice/exo4/details/'+fan.id">{{fan.name}}</a>
+                <input type="button" value="🚮" (click)="deleteFan(fan.id)">
+            </div>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #noFans>
+    <div>Soyez le premier fan!</div>
+</ng-template>
