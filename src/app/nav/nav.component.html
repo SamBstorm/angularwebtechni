@@ -17,11 +17,11 @@
   </ul> -->
   <ul>
     <li *ngFor="let menuItem of menu" appToggleInvisible>
-      <a [routerLink]="menuItem.url">{{menuItem.title}}</a>
+      <a [routerLink]="menuItem.url" [queryParams]="menuItem.queryParams">{{menuItem.title}}</a>
       <ul *ngIf="menuItem.children && menuItem.children.length > 0">
         <ng-container *ngFor="let subMenuItem of menuItem.children">
           <li [ngClass]="{invisible : !subMenuItem.isVisible}">
-            <a [routerLink]="((menuItem.url)?menuItem.url:'')+subMenuItem.url">{{subMenuItem.title}}</a>
+            <a [routerLink]="((menuItem.url)?menuItem.url:'')+subMenuItem.url" [queryParams]="subMenuItem.queryParams">{{subMenuItem.title}}</a>
           </li>
         </ng-container>
       </ul>

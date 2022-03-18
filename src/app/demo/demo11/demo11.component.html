@@ -1,0 +1,15 @@
+<h1>Storage :</h1>
+
+<h3>LocalStorage</h3>
+<input type="text" [(ngModel)]="localValue">
+<input type="button" value="Save" (click)="saveIntoLocal()">
+<input type="button" value="Delete" (click)="deleteIntoLocal()">
+
+<h3>SessionStorage</h3>
+<input type="text" [(ngModel)]="sessionValue">
+<input type="button" value="Save" (click)="saveIntoSession()">
+<input type="button" value="Delete" (click)="deleteIntoSession()">
+
+<h3>Mon fan stocké en localStorage :</h3>
+<p>Dans le storage : {{fanInStorage}}</p>
+<p>Après avoir été parse : {{fan | json}}</p>
