@@ -1,0 +1,29 @@
+<h1>Bienvenu nouveau membre!</h1>
+
+<form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()" (change)="onChange()">
+    <div>
+        <label for="fname">Prénom : </label>
+        <input type="text" id="fname" formControlName="firstname">
+    </div>
+    <div>
+        <label for="lname">Nom : </label>
+        <input type="text" id="lname" formControlName="lastname">
+    </div>
+    <div>
+        <label for="bdate">Date de naissance : </label>
+        <input type="date" id="bdate" formControlName="birthdate">
+    </div>
+    <div>
+        <label for="mail">Courriel : </label>
+        <input type="email" id="mail" formControlName="email">
+    </div>
+    <div>
+        <label for="pwd">Mot de passe : </label>
+        <input type="password" id="pwd" formControlName="password">
+    </div>
+    <div>
+        <label for="cpwd">Confirmation : </label>
+        <input type="password" id="cpwd" formControlName="checkpwd">
+    </div>
+    <input type="submit" value="S'enregistrer" [disabled]="!inscriptionForm.valid">
+</form>

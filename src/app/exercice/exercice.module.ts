@@ -14,6 +14,7 @@ import { CreateFanComponent } from './exo4/create-fan/create-fan.component';
 import { FanDetailsComponent } from './exo4/fan-details/fan-details.component';
 import { FanListComponent } from './exo4/fan-list/fan-list.component';
 import { EditFanComponent } from './exo4/edit-fan/edit-fan.component';
+import { Exo5Component } from './exo5/exo5.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { EditFanComponent } from './exo4/edit-fan/edit-fan.component';
     CreateFanComponent,
     FanDetailsComponent,
     FanListComponent,
-    EditFanComponent
+    EditFanComponent,
+    Exo5Component
   ],
   imports: [
     CommonModule,
