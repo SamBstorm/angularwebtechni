@@ -1,7 +1,7 @@
-export interface IUser {
+import { ILogin } from "./ilogin";
+
+export interface IUser extends ILogin{
     lastname : string;
     firstname : string;
-    email: string;
-    password : string;
     birthdate : Date;
 }

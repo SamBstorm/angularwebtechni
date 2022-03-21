@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime, Subscription, tap, map } from 'rxjs';
 import { MessageService } from '../demo/services/message.service';
 import { Link } from '../models/link';
+import { SessionService } from '../shared/services/session.service';
 
 @Component({
   selector: 'app-nav',
@@ -13,6 +14,7 @@ export class NavComponent implements OnInit, OnDestroy {
   private _nbMsg : number = 0;
   private _msgLink : Link = new Link("Démo 12 - Observable/BehaviorSubject", "/demo12");
   private _subMessage! : Subscription;
+  public isConnected : boolean = false;
 
   public menu : Link[] = [
     new Link("Accueil", "",undefined, [],true),
@@ -39,7 +41,7 @@ export class NavComponent implements OnInit, OnDestroy {
       new Link("Exercice 5 - Inscription",'/exo5'),
     ],true)
     ];
-  constructor(private _messagerie : MessageService) { }
+  constructor(private _messagerie : MessageService, private _session : SessionService) { }
   
   ngOnDestroy(): void {
     this._subMessage.unsubscribe();
@@ -55,6 +57,12 @@ export class NavComponent implements OnInit, OnDestroy {
         this._nbMsg = data;
         this._msgLink.title = `Démo 12 - Observable/BehaviorSubject (${this._nbMsg})`;
       }
+    })
+    this._session.IsConnectedSub.subscribe({
+      next : (data) => this.isConnected = data,
+      error : console.error,
+      complete : () => console.log("Finish to set isConnected")
+      
     })
   }
 

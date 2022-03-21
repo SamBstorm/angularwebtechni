@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ILogin } from 'src/app/models/ilogin';
 import { IUser } from 'src/app/models/iuser';
 import { CustomValidatorsService } from 'src/app/shared/services/custom-validators.service';
 import { LocalService } from 'src/app/shared/services/local.service';
@@ -45,12 +46,13 @@ export class Exo5Component implements OnInit {
     //   }) 
     // }
 
-    let user: IUser | null;
+    let temp: IUser | ILogin | null;
     try {
-      user = this._session.getUser();
+      temp = this._session.getUser();
     } catch (error) {
-      user = null;
+      temp = null;
     }
+    let user : IUser = temp as IUser;
     this.inscriptionForm = this._fb.group({
       lastname: [user?.lastname, [Validators.required]],
       firstname: [user?.firstname, [Validators.required]],

@@ -15,6 +15,8 @@ import { FanDetailsComponent } from './exo4/fan-details/fan-details.component';
 import { FanListComponent } from './exo4/fan-list/fan-list.component';
 import { EditFanComponent } from './exo4/edit-fan/edit-fan.component';
 import { Exo5Component } from './exo5/exo5.component';
+import { LoginFormComponent } from './exo6/login-form/login-form.component';
+import { LogoutConfirmComponent } from './exo6/logout-confirm/logout-confirm.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { Exo5Component } from './exo5/exo5.component';
     FanDetailsComponent,
     FanListComponent,
     EditFanComponent,
-    Exo5Component
+    Exo5Component,
+    LoginFormComponent,
+    LogoutConfirmComponent
   ],
   imports: [
     CommonModule,

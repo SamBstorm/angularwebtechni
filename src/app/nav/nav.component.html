@@ -26,5 +26,7 @@
         </ng-container>
       </ul>
     </li>
+    <li *ngIf="isConnected"><a routerLink="/exercice/exo6Logout">Déconnection</a></li>
+    <li *ngIf="!isConnected"><a routerLink="/exercice/exo6Login">Connection</a></li>
   </ul>
 </nav>
