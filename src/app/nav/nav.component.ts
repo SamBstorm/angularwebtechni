@@ -32,6 +32,7 @@ export class NavComponent implements OnInit, OnDestroy {
       new Link("Démo 10 - Formulaire avec file", "/demo10"),
       new Link("Démo 11 - Storage", "/demo11"),
       this._msgLink,
+      new Link("Démo 13 - API", "/demo13"),
     ], true),
     new Link("Exercice",'/exercice',undefined,[
       new Link("Exercice 1 - Chonomètre",'/exo1'),

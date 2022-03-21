@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HighligthDirective } from './directives/highligth.directive';
 import { SamEverywhereDirective } from './directives/sam-everywhere.directive';
 import { ToggleInvisibleDirective } from './directives/toggle-invisible.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -20,7 +21,8 @@ import { ToggleInvisibleDirective } from './directives/toggle-invisible.directiv
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports : [
     ToFahrenheitPipe,
@@ -29,7 +31,8 @@ import { ToggleInvisibleDirective } from './directives/toggle-invisible.directiv
     HighligthDirective,
     SamEverywhereDirective,
     ToggleInvisibleDirective,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 
 })

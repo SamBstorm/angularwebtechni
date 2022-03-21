@@ -1,0 +1,15 @@
+<div *ngIf="pkmn">
+    <h1>{{pkmn.id}} - {{pkmn.name}}</h1>
+    <div>
+        <img [src]="pkmn.front_default">
+        <img [src]="pkmn.back_default">
+    </div>
+    <div>
+        <div *ngFor="let type of pkmn.types">{{type.name}}</div>
+    </div>
+</div>
+<ul>
+    <li *ngFor="let pkmnList of pkmns">
+        <input type="button" [value]="pkmnList.name" (click)="onClick(pkmnList.id)">
+    </li>
+</ul>
