@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { debounceTime, Subscription, tap, map } from 'rxjs';
+import { MessageService } from '../demo/services/message.service';
 import { Link } from '../models/link';
 
 @Component({
@@ -6,7 +8,11 @@ import { Link } from '../models/link';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnDestroy {
+
+  private _nbMsg : number = 0;
+  private _msgLink : Link = new Link("Démo 12 - Observable/BehaviorSubject", "/demo12");
+  private _subMessage! : Subscription;
 
   public menu : Link[] = [
     new Link("Accueil", "",undefined, [],true),
@@ -23,6 +29,7 @@ export class NavComponent implements OnInit {
       new Link("Démo 9 - QueryParams routing", "/demo9/Hello",{sender :"toto"}),
       new Link("Démo 10 - Formulaire avec file", "/demo10"),
       new Link("Démo 11 - Storage", "/demo11"),
+      this._msgLink,
     ], true),
     new Link("Exercice",'/exercice',undefined,[
       new Link("Exercice 1 - Chonomètre",'/exo1'),
@@ -32,9 +39,23 @@ export class NavComponent implements OnInit {
       new Link("Exercice 5 - Inscription",'/exo5'),
     ],true)
     ];
-  constructor() { }
+  constructor(private _messagerie : MessageService) { }
+  
+  ngOnDestroy(): void {
+    this._subMessage.unsubscribe();
+  }
 
   ngOnInit(): void {
+    this._subMessage = this._messagerie.newMessageSubject.pipe(
+      map(d => d.toString()),
+      tap(console.log)
+      // debounceTime(7000),
+    ).subscribe({
+      next : (data) => {
+        this._nbMsg = data;
+        this._msgLink.title = `Démo 12 - Observable/BehaviorSubject (${this._nbMsg})`;
+      }
+    })
   }
 
 }

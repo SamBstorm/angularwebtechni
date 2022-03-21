@@ -4,6 +4,7 @@ import { UserGuard } from '../shared/guards/user.guard';
 import { Demo1Component } from './demo1/demo1.component';
 import { Demo10Component } from './demo10/demo10.component';
 import { Demo11Component } from './demo11/demo11.component';
+import { Demo12Component } from './demo12/demo12.component';
 import { Demo2Component } from './demo2/demo2.component';
 import { Demo3Component } from './demo3/demo3.component';
 import { Demo4Component } from './demo4/demo4.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
     { path : "demo9/:msg", component : Demo9Component},
     { path : "demo10", component : Demo10Component},
     { path : "demo11", component : Demo11Component},
+    { path : "demo12", component : Demo12Component},
 ];
 
 @NgModule({

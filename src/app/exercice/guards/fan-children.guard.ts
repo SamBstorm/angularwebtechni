@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FanChildrenGuard implements CanActivateChild {
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return false;
+    return true;
   }
   
 }

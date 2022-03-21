@@ -60,8 +60,8 @@ export class Exo5Component implements OnInit {
       checkpwd: [null, [Validators.required]]
     },
       {
-        validators: [this._validators.compareValues('password','checkpwd')],
-        updateOn: 'blur'
+        validators: [this._validators.compareValues('password','checkpwd')]/*,
+        updateOn: 'change'*/
       })
   }
 

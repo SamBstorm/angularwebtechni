@@ -1,0 +1,12 @@
+<div *ngIf="messages.length > 0; else noMsg">
+    <div *ngFor="let msg of messages">
+        <h3>{{msg.title}}</h3>
+        <div>Sender : {{msg.sender}}</div>
+        <div>Receiver : {{msg.receiver}}</div>
+        <p>{{msg.content}}</p>
+    </div>
+</div>
+
+<ng-template #noMsg>
+    <div>Vous n'avez pas d'ami en ce moment...</div>
+</ng-template>
