@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserGuard } from '../shared/guards/user.guard';
+import { Demo13PlayerRegisterComponent } from './components/demo13-player-register/demo13-player-register.component';
 import { Demo1Component } from './demo1/demo1.component';
 import { Demo10Component } from './demo10/demo10.component';
 import { Demo11Component } from './demo11/demo11.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
     { path : "demo11", component : Demo11Component},
     { path : "demo12", component : Demo12Component},
     { path : "demo13", component : Demo13Component},
+    { path : "demo13/register", component : Demo13PlayerRegisterComponent},
 ];
 
 @NgModule({

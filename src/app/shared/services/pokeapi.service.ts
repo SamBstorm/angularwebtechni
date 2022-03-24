@@ -31,7 +31,12 @@ export class PokeapiService {
 
   public getType(id:number):Observable<IType>{
     return this._http.get<ITypeResult>(this._urlType+id)
-    .pipe(map(this._getTypeResultToType));
+    .pipe(map(data =>{
+      return {
+        id: parseInt(data.url.split('/').reverse()[1]),
+        name : data.name
+      };
+    }));
   }
 
   public getTypeDoubleDamageFrom(id : number):Observable<IType[]>{
@@ -68,9 +73,9 @@ export class PokeapiService {
     return result;
   }
 
-  private _getTypeResultToType (data :ITypeResult) : IType{
-    console.log(data);
-    
+  ///Méthode static pour un accès à notre méthode sans utiliser une instance du service.
+  // Thank you Axel
+  private static _getTypeResultToType(data : ITypeResult) : IType{    
     return {
       id: parseInt(data.url.split('/').reverse()[1]),
       name : data.name
@@ -79,9 +84,7 @@ export class PokeapiService {
 
   private _getTypeResultToDoubleDamageFrom(data : ITypeDamageResult) : IType[]{
     let dataDamage : ITypeResult[] = data.damage_relations.double_damage_from;
-    console.log(dataDamage);
-    let result : IType[] = dataDamage.map(this._getTypeResultToType);
-    console.log(result);
+    let result : IType[] = dataDamage.map(data => PokeapiService._getTypeResultToType(data) );
     return result;
     
   }

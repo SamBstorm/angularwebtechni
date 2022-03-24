@@ -1,0 +1,6 @@
+<h1>Ajouter un joueur</h1>
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+    <label for="">Veuillez entrer votre nom d'utilisateur :</label>
+    <input type="text" formControlName="username" appCheckUsernameValidator>
+    <input type="submit" value="enregistrer">
+</form>

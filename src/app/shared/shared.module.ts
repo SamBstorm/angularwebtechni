@@ -7,6 +7,7 @@ import { HighligthDirective } from './directives/highligth.directive';
 import { SamEverywhereDirective } from './directives/sam-everywhere.directive';
 import { ToggleInvisibleDirective } from './directives/toggle-invisible.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { CheckUsernameValidatorDirective } from './directives/check-username-validator.directive';
 
 
 
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     ConvertSecondsPipe,
     HighligthDirective,
     SamEverywhereDirective,
-    ToggleInvisibleDirective
+    ToggleInvisibleDirective,
+    CheckUsernameValidatorDirective
   ],
   imports: [
     CommonModule,

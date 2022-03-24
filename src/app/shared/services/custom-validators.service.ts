@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { PlayerApiService } from './player-api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomValidatorsService {
 
-  constructor() { }
+  constructor(
+    private _apiPlayer : PlayerApiService
+  ) { }
 
   public minAge(age : number): ValidatorFn | null{
     return (control : AbstractControl) : ValidationErrors | null =>{
