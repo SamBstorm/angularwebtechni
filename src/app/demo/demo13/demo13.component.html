@@ -8,6 +8,18 @@
         <div *ngFor="let type of pkmn.types">{{type.name}}</div>
     </div>
 </div>
+<table>
+    <thead>
+        <tr>
+            <td>Double dégats</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td *ngFor="let type of dblDmgFrm">{{type.name}}</td>
+        </tr>
+    </tbody>
+</table>
 <ul>
     <li *ngFor="let pkmnList of pkmns">
         <input type="button" [value]="pkmnList.name" (click)="onClick(pkmnList.id)">
